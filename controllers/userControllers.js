@@ -1,6 +1,6 @@
 const User = require("../schemas/userSchema");
-const generateJwtToken = require("../utils/generateJwt");
-const newCustomError = require("../utils/newCustomError");
+const customError = require("../utils/customError");
+const generateJwtToken = require("../utils/generateJwtToken");
 
 //@desc create user
 //route POST/api/user
@@ -12,7 +12,7 @@ const createUser = async (req, res, next) => {
     const user = await User.findOne({ email });
 
     if (user) {
-      throw newCustomError(400, "User with this email already exists");
+      throw customError(400, "User with this email already exists");
     }
 
     const newUser = await User.create({
@@ -39,7 +39,7 @@ const getSingleUser = async (req, res, next) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-      throw newCustomError(404, "User not found");
+      throw customError(404, "User not found");
     }
 
     res.status(200).send({
@@ -61,7 +61,7 @@ const updateUser = async (req, res, next) => {
     const user = await User.findOne({ _id: id });
 
     if (!user) {
-      throw newCustomError(404, "User not found");
+      throw customError(404, "User not found");
     }
 
     const updatedUser = await User.findOneAndUpdate({ _id: id }, updated, {
@@ -87,7 +87,7 @@ const deleteUser = async (req, res, next) => {
     const user = await User.findOne({ _id: id });
 
     if (!user) {
-      throw newCustomError(404, "User not found");
+      throw customError(404, "User not found");
     }
 
     await User.deleteOne({ _id: id });

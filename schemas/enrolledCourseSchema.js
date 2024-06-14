@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const savedItemsSchema = mongoose.Schema(
+const enrolledCourses = mongoose.Schema(
   {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -15,4 +15,4 @@ const savedItemsSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("SavedItem", savedItemsSchema);
+module.exports = mongoose.model("EnrolledCourse", enrolledCourses);
