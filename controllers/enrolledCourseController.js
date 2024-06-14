@@ -1,3 +1,4 @@
+const { populate } = require("dotenv");
 const EnrolledCourses = require("../schemas/enrolledCourseSchema");
 const customError = require("../utils/customError");
 
@@ -29,7 +30,7 @@ const createEnrolledCourses = async (req, res, next) => {
 };
 
 //@desc get all enrolled courses userwise enrolled courses
-//route GET /api/savedItems   id here is userId
+//route GET /api/enrolledCourses   id here is userId
 //access private
 
 const getAllEnrolledCourses = async (req, res, next) => {
@@ -37,7 +38,13 @@ const getAllEnrolledCourses = async (req, res, next) => {
     const id = req.user._id;
 
     const enrolledCourses = await EnrolledCourses.find({ userId: id }).populate(
-      "course"
+      {
+        path: "course",
+        populate: {
+          path: "instructor",
+          model: "User",
+        },
+      }
     );
 
     res.status(200).send({

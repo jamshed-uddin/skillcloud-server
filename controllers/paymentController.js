@@ -1,7 +1,7 @@
 const Payments = require("../schemas/paymentSchema");
 const Stripe = require("stripe");
 const stripe = Stripe(process.env.PAYMENT_SK);
-
+const SavedCourses = require("../schemas/savedCoursesSchema");
 //@desc create payment intent
 //route POST /api/payments/paymentIntent
 //access private
@@ -31,6 +31,9 @@ const paymentIntent = async (req, res, next) => {
 const savePaymentInfo = async (req, res, next) => {
   try {
     const body = req.body;
+    const { course } = req.body;
+
+    await SavedCourses.deleteOne({ userId: req.user._id, course });
     const paymentInfo = { ...body, user: req.user._id };
     await Payments.create(paymentInfo);
     res.status(201).send({ message: "Payment info saved" });
@@ -46,7 +49,9 @@ const getAllPayments = async (req, res, next) => {
   try {
     const userId = req.user._id;
 
-    const allPayments = await Payments.find({ user: userId });
+    const allPayments = await Payments.find({ user: userId }).populate(
+      "course"
+    );
 
     res
       .status(200)
