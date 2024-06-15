@@ -41,6 +41,7 @@ Before you begin, ensure you have met the following requirements:
  PAYMENT_SK=stripe secret key
  PORT=port
  MONGO_URI=mongodb connection string
+ JWT_SECRET=jwt_secret
    ```
    
 ## Running the server
