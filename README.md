@@ -51,7 +51,7 @@ Before you begin, ensure you have met the following requirements:
 
 
 ## API Endpoints
-**Authorization:** Private APIs requires a authorization token in request header
+**Authorization:** Private APIs requires an authorization token in request header.
 ``Authorization: Bearer {token}``
 
 ### User Routes
