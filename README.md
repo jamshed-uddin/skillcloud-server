@@ -144,7 +144,7 @@ Before you begin, ensure you have met the following requirements:
 - **URL:** `/api/courses/mycourses`
 - **Method:** `GET`
 -  **Access:** `Private`
-- **User id:**  `Gets user id from req.user that set by auth               middleware`
+- **User id:**  `Gets user id from req.user that set by auth middleware`
 - **Description:**
 > A private api to get all courses of an individual user. It queries data base by id of user that comes from req.user.User  in req.user set by auth middleware after succesfull token verification.After succesfull query in database, api responses with a message of  success and all course data.
 
@@ -200,7 +200,7 @@ Before you begin, ensure you have met the following requirements:
 - **URL:** `/api/enrolledCourses`
 - **Method:** `GET`
 -  **Access:** `Private`
-- **User id:**  `Gets user id from req.user that set by auth               middleware`
+- **User id:**  `Gets user id from req.user that set by auth middleware`
 - **Description:**
 > A private api to get all enrolled courses of an individual user. It queries data base by id of user that comes from req.user.User in req.user set by auth middleware after succesfull token verification.After succesfull query in database, api responses with a message of  success and all course data.
 
@@ -236,7 +236,7 @@ Before you begin, ensure you have met the following requirements:
 - **URL:** `/api/savedCourses`
 - **Method:** `GET`
 -  **Access:** `Private`
-- **User id:**  `Gets user id from req.user that set by auth               middleware`
+- **User id:**  `Gets user id from req.user that set by auth middleware`
 - **Description:**
 > A private api to get all saved courses of an individual user. It queries data base by id of user that comes from req.user. User in req.user set by auth middleware after succesfull token verification.After succesfull query in database, api responses with a message of  success and all course data.
 
