@@ -1,7 +1,8 @@
 # Skillcloud server
 
 This is the server for Skillcloud. A Learning Management System(LMS) where users can enroll in classes by paying by Stripe payment. Users can also publish their own courses, update or delete them.
-**Client repository:**[https://github.com/jamshed-uddin/skillcloud-client](https://github.com/jamshed-uddin/skillcloud-client)
+
+**Client repository:**  [https://github.com/jamshed-uddin/skillcloud-client](https://github.com/jamshed-uddin/skillcloud-client)
 
 ## Table of Contents
 
@@ -73,34 +74,34 @@ or
    
     
 
-#### Register a new user
+#### 1. Register a new user
 - **URL:** `/api/users/register`
 - **Method:** `POST`
 -  **Access:** `Public`
 - **Description:**  
 > A public api to create new user that takes a object with email and password in request body.After succesfull registration, api response with a message of success and user data.
 
-#### Get a single user
+#### 2. Get a single user
 - **URL:** `/api/users/:email`
 - **Method:** `GET`
 -  **Access:** `Private`
 - **Description:**
 > A private api to get data of individual user that takes user email in params.After succesfull query in database, api responses with a message of  success and user data.
 
-#### Update user
+#### 3. Update user
 - **URL:** `/api/users/:id`
 - **Method:** `PATCH`
 -  **Access:** `Private`
 - **Description:**
 > A private api to update data of individual user that takes user id in params.After succesfull update of user in database, api responses with a message of  success and updated user data.
-#### Delete user
+#### 4. Delete user
 - **URL:** `/api/users/:id`
 - **Method:** `DELETE`
 -  **Access:** `Private`
 - **Description:**
 > A private api to delete user that takes user id in params.After succesfully delete user from database, api responses with a message of  successfull deletation.
 
-#### Generate jwt token
+#### 5. Generate jwt token
 - **URL:** `/api/user/generateJwtToken`
 - **Method:** `POST`
 -  **Access:** `Public`
@@ -133,20 +134,20 @@ or
       },
     
 
-#### Create a course
+#### 1. Create a course
 - **URL:** `/api/courses`
 - **Method:** `POST`
 -  **Access:** `Private`
 - **Description:**  
 > A private api to create new course that takes a course object in request body.After succesfull creation of the course, api response with a message of success and course data.
-#### Get all courses
+#### 2. Get all courses
 - **URL:** `/api/courses`
 - **Method:** `GET`
 -  **Access:** `Public`
 - **Description:**
 > A public api to get all courses.After succesfull query in database, api responses with a message of  success and all course data.
 
-#### Get all courses of an individual user
+#### 3. Get all courses of an individual user
 - **URL:** `/api/courses/mycourses`
 - **Method:** `GET`
 -  **Access:** `Private`
@@ -154,20 +155,20 @@ or
 - **Description:**
 > A private api to get all courses of an individual user. It queries data base by id of user that comes from req.user.User  in req.user set by auth middleware after succesfull token verification.After succesfull query in database, api responses with a message of  success and all course data.
 
-#### Get a single course
+#### 4. Get a single course
 - **URL:** `/api/users/:id`
 - **Method:** `GET`
 -  **Access:** `Public`
 - **Description:**
 > A private api to get data of a single course that takes course id in params.After succesfull query in database, api responses with a message of  success and course data.
 
-#### Update course
+#### 5. Update course
 - **URL:** `/api/courses/:id`
 - **Method:** `PATCH`
 -  **Access:** `Private`
 - **Description:**
 > A private api to update course data that takes data to update in request body.After succesfull update of course in database, api responses with a message of  success and updated course data.
-#### Delete course
+#### 6. Delete course
 - **URL:** `/api/courses/:id`
 - **Method:** `DELETE`
 -  **Access:** `Private`
@@ -195,14 +196,14 @@ or
     
     
 
-#### Create enrolled course
+#### 1. Create enrolled course
 - **URL:** `/api/enrolledCourses`
 - **Method:** `POST`
 -  **Access:** `Private`
 - **Description:**  
 > A private api to save enrolled course to database after successfull payment for the course. It takes course and userId in request body and responses with a message of enrollment success
 
-#### Get all courses of an individual user
+#### 2. Get all courses of an individual user
 - **URL:** `/api/enrolledCourses`
 - **Method:** `GET`
 -  **Access:** `Private`
@@ -231,14 +232,14 @@ or
     
     
 
-#### Save course
+#### 1. Save course
 - **URL:** `/api/savedCourses`
 - **Method:** `POST`
 -  **Access:** `Private`
 - **Description:**  
 > A private api to save courses. It takes course and userId in request body and responses with a message of success
 
-#### Get all courses of an individual user
+#### 2. Get all courses of an individual user
 - **URL:** `/api/savedCourses`
 - **Method:** `GET`
 -  **Access:** `Private`
@@ -246,7 +247,7 @@ or
 - **Description:**
 > A private api to get all saved courses of an individual user. It queries data base by id of user that comes from req.user. User in req.user set by auth middleware after succesfull token verification.After succesfull query in database, api responses with a message of  success and all course data.
 
-#### Delete saved course
+#### 3. Delete saved course
 - **URL:** `/api/savedCourses/:id`
 - **Method:** `DELETE`
 -  **Access:** `Private`
@@ -254,7 +255,7 @@ or
 > A private api to delete course that takes course id in params. It queries the database with course id and user id from req.user and deletes the course from database, api responses with a message of  successfull delete.
 
 ### Payment routes
-#### Create payment intent
+#### 1. Create payment intent
 - **URL:** `api/payments/paymentIntent`
 - **Method:** `POST`
 -  **Access:** `Private`
@@ -265,14 +266,14 @@ or
       payment_method_types: ["card"],
     }`.After successfull intent create it responses with message of succesfull intent creation and `client_secret` from paymentIntent object.
 
-#### Save a transaction
+#### 2. Save a transaction
 - **URL:** `api/payments`
 - **Method:** `POST`
 -  **Access:** `Private`
 - **Description:**
 > A private api to save transaction info after a successfull payment. It takes payment info and after successfull insert in database it responses with succsess message.
 
-#### Get all transactions of an individual user
+#### 3. Get all transactions of an individual user
 - **URL:** `api/payments`
 - **Method:** `GET`
 -  **Access:** `Private`
