@@ -1,6 +1,7 @@
 # Skillcloud server
 
 This is the server for Skillcloud. A Learning Management System(LMS) where users can enroll in classes by paying by Stripe payment. Users can also publish their own courses, update or delete them.
+**Client repository:**[https://github.com/jamshed-uddin/skillcloud-client](https://github.com/jamshed-uddin/skillcloud-client)
 
 ## Table of Contents
 
@@ -33,6 +34,10 @@ Before you begin, ensure you have met the following requirements:
   
 ```sh
  npm install
+   ```
+or
+```sh
+ yarn install
    ```
    
   2.**Setup environment variables**
